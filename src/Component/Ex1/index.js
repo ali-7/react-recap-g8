@@ -3,7 +3,7 @@ import Welcome from '../Welcome';
 // import Message from '../Message';
 
 function Ex1() {
-  return <Welcome name='ali' />;
+  return <Welcome name='Ali' />;
 }
 
 export default Ex1;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Ex1 from './ex1/Component/Ex1';
+import Ex1 from './Component/Ex1';
 
 function App() {
   return (
