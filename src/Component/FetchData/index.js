@@ -9,11 +9,27 @@ class FetchData extends Component {
       error: null,
       Loading: true,
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(
+      (state) => {
+        console.log('1111111:', state.title);
+        return { title: state.title + '!' };
+      },
+      () => {
+        console.log('2222222222', this.state.title);
+        const translation = this.props.translate(this.state.title);
+        console.log('3333333333:', translation);
+        this.setState({ title: translation });
+      }
+    );
   }
 
   componentDidMount() {
     console.log('componentDidMount');
-    fetch('https://jsonplaceholderssss.typicode.com/todos/2')
+    fetch('https://jsonplaceholder.typicode.com/todos/2')
       .then((res) => res.json())
       .then((data) => {
         console.log('data:', data);
@@ -24,17 +40,17 @@ class FetchData extends Component {
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
-    if (prevState.error !== this.state.error) {
-      console.log(' there is an error');
-      fetch('https://jsonplaceholder.typicode.com/todos/3')
-        .then((res) => res.json())
-        .then((data) => {
-          this.setState({ title: data.title, Loading: false, error: null });
-        });
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('componentDidUpdate');
+  //   if (prevState.error !== this.state.error) {
+  //     console.log(' there is an error');
+  //     fetch('https://jsonplaceholder.typicode.com/todos/3')
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         this.setState({ title: data.title, Loading: false, error: null });
+  //       });
+  //   }
+  // }
 
   render() {
     console.log('render');
@@ -44,7 +60,12 @@ class FetchData extends Component {
     } else if (Loading) {
       return <div>Loading...</div>;
     } else {
-      return <h1>{title} </h1>;
+      return (
+        <>
+          <h1>{title} </h1>
+          <button onClick={this.handleClick}>Translate</button>
+        </>
+      );
     }
   }
 }
