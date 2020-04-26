@@ -12,19 +12,26 @@ class FetchData extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // handleClick() {
+  //   this.setState(
+  //     (state) => {
+  //       console.log('1111111:', state.title);
+  //       return { title: state.title + '!' };
+  //     },
+  //     () => {
+  //       console.log('2222222222', this.state.title);
+  //       const translation = this.props.translate(this.state.title);
+  //       console.log('3333333333:', translation);
+  //       this.setState({ title: translation });
+  //     }
+  //   );
+  // }
+
   handleClick() {
-    this.setState(
-      (state) => {
-        console.log('1111111:', state.title);
-        return { title: state.title + '!' };
-      },
-      () => {
-        console.log('2222222222', this.state.title);
-        const translation = this.props.translate(this.state.title);
-        console.log('3333333333:', translation);
-        this.setState({ title: translation });
-      }
-    );
+    this.setState((state) => {
+      console.log('1111111:', state.title);
+      return { title: state.title + '!' };
+    });
   }
 
   componentDidMount() {
@@ -51,6 +58,20 @@ class FetchData extends Component {
   //       });
   //   }
   // }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+    console.log('prevState.title:', prevState.title);
+
+    if (prevState.title === 'quis ut nam facilis et officia qui') {
+      console.log('2222222222', this.state.title);
+      const translation = this.props.translate(this.state.title);
+      console.log('3333333333:', translation);
+      this.setState({ title: translation });
+    } else if (prevState.title !== this.state.title) {
+      return;
+    }
+  }
 
   render() {
     console.log('render');
