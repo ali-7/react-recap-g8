@@ -33,7 +33,7 @@ class FetchData extends Component {
 
   componentDidMount() {
     console.log('componentDidMount');
-    fetch('https://jsonplaceholderssssssss.typicode.com/todos/2')
+    fetch('https://jsonplaceholder.typicode.com/todos/2')
       .then((res) => res.json())
       .then((data) => {
         console.log('data:', data);
@@ -44,17 +44,17 @@ class FetchData extends Component {
       });
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
-    if (prevState.error !== this.state.error) {
-      console.log(' there is an error');
-      fetch('https://jsonplaceholder.typicode.com/todos/3')
-        .then((res) => res.json())
-        .then((data) => {
-          this.setState({ title: data.title, Loading: false, error: null });
-        });
-    }
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('componentDidUpdate');
+  //   if (prevState.error !== this.state.error) {
+  //     console.log(' there is an error');
+  //     fetch('https://jsonplaceholder.typicode.com/todos/3')
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         this.setState({ title: data.title, Loading: false, error: null });
+  //       });
+  //   }
+  // }
 
   render() {
     console.log('render');
