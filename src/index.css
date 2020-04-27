@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-/* body {
+body {
   height: 100vh;
   margin: 0;
   display: grid;
@@ -28,4 +28,4 @@ div > div > div {
 div > div > button {
   padding: 8px 12px;
   margin: 0 10px 5px 0;
-} */
+}

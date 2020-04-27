@@ -3,7 +3,7 @@ import FetchData from '../FetchData';
 
 const translate = (str) => {
   if (str === 'quis ut nam facilis et officia qui!') {
-    return 'For easy, as anyone who has responsibilities';
+    return 'For easy, as anyone who has responsibilities - google translation';
   } else {
     return 'async calls ';
   }

@@ -9,31 +9,27 @@ class FetchData extends Component {
       error: null,
       Loading: true,
     };
-    // this.handleClick = this.handleClick.bind(this);
-    console.log('this:', this);
+    //   // this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick = () => {
-    this.setState(
-      (state, props) => {
-        console.log('props:', props);
-
-        console.log('11111111:', state.title);
-        return { title: state.title + '!' };
-      },
-      () => {
-        console.log('hi from setState CB');
-        console.log('22222222', this.state);
-        const translation = this.props.translate(this.state.title);
-        console.log('33333333', translation);
-        this.setState({ title: translation });
-      }
-    );
-  };
+  // handleClick() {
+  //   this.setState(
+  //     (state) => {
+  //       console.log('1111111:', state.title);
+  //       return { title: state.title + '!' };
+  //     },
+  //     () => {
+  //       console.log('2222222222', this.state.title);
+  //       const translation = this.props.translate(this.state.title);
+  //       console.log('3333333333:', translation);
+  //       this.setState({ title: translation });
+  //     }
+  //   );
+  // }
 
   componentDidMount() {
     console.log('componentDidMount');
-    fetch('https://jsonplaceholderssssssss.typicode.com/todos/2')
+    fetch('https://jsonplaceholder.typicode.com/todos/2')
       .then((res) => res.json())
       .then((data) => {
         console.log('data:', data);
@@ -67,7 +63,7 @@ class FetchData extends Component {
       return (
         <>
           <h1>{title}</h1>
-          <button onClick={this.handleClick}>translate</button>
+          {/* <button onClick={this.handleClick}>Translate</button> */}
         </>
       );
     }
